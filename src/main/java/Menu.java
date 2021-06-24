@@ -76,17 +76,35 @@ public class Menu {
     private void readFile(){
 
         try{
-            //파일 객체 생성
-            File file = new File("data.txt");
-            //입력 스트림 생성
-            FileReader filereader = new FileReader(file);
-            //입력 버퍼 생성
-            BufferedReader bufReader = new BufferedReader(filereader);
-            bufReader.readLine();  // 첫줄 생략
-            String line = "";
-            while((line = bufReader.readLine()) != null){  //.readLine()은 끝에 개행문자를 읽지 않는다.
+            // bufferedReader, FileReader 사용
+//            //파일 객체 생성
+//            File file = new File("data.txt");
+//            //입력 스트림 생성
+//            FileReader filereader = new FileReader(file);
+//            //입력 버퍼 생성
+//            BufferedReader bufReader = new BufferedReader(filereader);
+//            bufReader.readLine();  // 첫줄 생략
+//            String line = "";
+//            while((line = bufReader.readLine()) != null){  //.readLine()은 끝에 개행문자를 읽지 않는다.
+//
+//                StringTokenizer st = new StringTokenizer(line , "/");
+//
+//                String name = st.nextToken().trim();
+//                int korScore = Integer.parseInt(st.nextToken().trim());
+//                int engScore = Integer.parseInt(st.nextToken().trim());
+//                int mathScore = Integer.parseInt(st.nextToken().trim());
+//                String regDate = st.nextToken().trim();
+//                String grade = calculateGrade(korScore, engScore, mathScore);
+//
+//                createData(name, korScore, engScore, mathScore, grade, regDate);
+//            }
+//            bufReader.close();
+            // bufferedReader 사용
 
-                StringTokenizer st = new StringTokenizer(line , "/");
+            // fileUtils 사용
+            List<String> lines = FileUtils.readLines(new File("data.txt"));
+            for(int i =1 ; i < lines.size(); i++){
+                StringTokenizer st = new StringTokenizer(lines.get(i) , "/");
 
                 String name = st.nextToken().trim();
                 int korScore = Integer.parseInt(st.nextToken().trim());
@@ -97,12 +115,10 @@ public class Menu {
 
                 createData(name, korScore, engScore, mathScore, grade, regDate);
             }
-            bufReader.close();
+            // fileUtils 사용
 
-            List<String> lines = FileUtils.readLines(new File("data.txt")); // fileUtils 사용
-            for(String aa : lines){
-                System.out.println(aa);
-            }
+            readData();
+
         }catch (FileNotFoundException e) {
             System.out.println("data.txt 파일이 존재하지 않습니다.");
         }catch(IOException e){
@@ -115,19 +131,43 @@ public class Menu {
     private void saveFile() {
 
         try {
-            File file = new File("data.txt");
 
-            BufferedWriter bw=new BufferedWriter(new FileWriter(file));
+            // BufferedWriter, FileWriter 사용
+//            File file = new File("data.txt");
+//            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+//            bw.write("이름 / 국어 성적 / 영어 성적 / 수학 성적 / 등록일자(YYYY-MM-DD)");
+//            bw.newLine();
+//            for (Person p: this.list) {
+//                bw.write(p.getName() + " / " + p.getKorScore() + " / " + p.getEngScore() + " / " + p.getMathScore() + " / " + p.getRegDate());
+//                bw.newLine();
+//            }
+//            bw.close();
+//            System.out.println("파일에 저장되었습니다.");
+            // BufferedWriter, FileWriter 사용
 
-            bw.write("이름 / 국어 성적 / 영어 성적 / 수학 성적 / 등록일자(YYYY-MM-DD)");
-            bw.newLine();
+            // fileUtils 사용
+//            File file = new File("data1.txt");
+//            FileUtils.write(file, "이름 / 국어 성적 / 영어 성적 / 수학 성적 / 등록일자(YYYY-MM-DD)\n", false);
+//            for (Person p: this.list) {
+//                FileUtils.write (file,p.getName() + " / " + p.getKorScore() + " / " + p.getEngScore() + " / " + p.getMathScore() + " / " + p.getRegDate() + "\n", true);
+//            }
+//            System.out.println("파일에 저장되었습니다.");
+            // fileUtils 사용
 
+            // FileWriter 사용
+            File file = new File("data1.txt");
+            FileWriter fw = new FileWriter(file, false);
+            fw.write("이름 / 국어 성적 / 영어 성적 / 수학 성적 / 등록일자(YYYY-MM-DD)\n");
             for (Person p: this.list) {
-                bw.write(p.getName() + " / " + p.getKorScore() + " / " + p.getEngScore() + " / " + p.getMathScore() + " / " + p.getRegDate());
-                bw.newLine();
+                fw.write(p.getName() + " / " + p.getKorScore() + " / " + p.getEngScore() + " / " + p.getMathScore() + " / " + p.getRegDate() + "\n");
             }
+            fw.flush();
+            fw.close();
+            System.out.println("파일에 저장되었습니다.");
+            // FileWriter 사용
 
-            bw.close();
+            readData();
+
         }catch (FileNotFoundException e) {
             System.out.println("data.txt 파일이 존재하지 않습니다.");
         }catch(IOException e){
@@ -297,8 +337,6 @@ public class Menu {
 
         Person p = new Person(this.list.size(), name, korScore, engScore, mathScore, grade, regDate);
         this.list.add(p);
-        System.out.println("추가되었습니다.");
-
     }
 
     private void readData() {
