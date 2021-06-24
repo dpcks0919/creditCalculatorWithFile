@@ -12,5 +12,6 @@
   
   
   1. 파일 저장하기 기능 추가
-
+  - data.txt 파일 저장하기
+ 
   <img width="412" alt="스크린샷 2021-06-24 오후 11 12 41" src="https://user-images.githubusercontent.com/47955992/123278156-adc6a780-d541-11eb-89bc-27be281e9262.png">
