@@ -15,3 +15,5 @@
   - data.txt 파일 저장하기
  
   <img width="412" alt="스크린샷 2021-06-24 오후 11 12 41" src="https://user-images.githubusercontent.com/47955992/123278156-adc6a780-d541-11eb-89bc-27be281e9262.png">
+
+  <img width="494" alt="스크린샷 2021-06-24 오후 11 14 03" src="https://user-images.githubusercontent.com/47955992/123278401-df3f7300-d541-11eb-848b-080d9b923562.png">
