@@ -11,6 +11,8 @@ public class creditCalculator {
         System.out.println("-----시작-----");
         boolean check = true;
 
+        m.readFile();
+
         // Using Scanner
 //        Scanner scan = new Scanner(System.in);
 //

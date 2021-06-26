@@ -23,8 +23,8 @@ public class Menu {
         System.out.println("4. 삭제");
         System.out.println("5. 이름 검색");
         System.out.println("6. 학점 검색");
-        System.out.println("7. 파일 불러오기");
-        System.out.println("8. 파일 저장하기");
+        System.out.println("7. 파일 저장하기");
+        //System.out.println("8. 파일 저장하기");
         System.out.println("0. 종료");
         System.out.println("----------");
     }
@@ -57,10 +57,6 @@ public class Menu {
                 break;
 
             case "7":
-                readFile();
-                break;
-
-            case "8":
                 saveFile();
                 break;
 
@@ -73,7 +69,7 @@ public class Menu {
         return true;
     }
 
-    private void readFile(){
+    public void readFile(){
 
         try{
             // bufferedReader, FileReader 사용
@@ -117,8 +113,6 @@ public class Menu {
             }
             // fileUtils 사용
 
-            readData();
-
         }catch (FileNotFoundException e) {
             System.out.println("data.txt 파일이 존재하지 않습니다.");
         }catch(IOException e){
@@ -146,7 +140,7 @@ public class Menu {
             // BufferedWriter, FileWriter 사용
 
             // fileUtils 사용
-//            File file = new File("data1.txt");
+//            File file = new File("data.txt");
 //            FileUtils.write(file, "이름 / 국어 성적 / 영어 성적 / 수학 성적 / 등록일자(YYYY-MM-DD)\n", false);
 //            for (Person p: this.list) {
 //                FileUtils.write (file,p.getName() + " / " + p.getKorScore() + " / " + p.getEngScore() + " / " + p.getMathScore() + " / " + p.getRegDate() + "\n", true);
@@ -155,7 +149,7 @@ public class Menu {
             // fileUtils 사용
 
             // FileWriter 사용
-            File file = new File("data1.txt");
+            File file = new File("data.txt");
             FileWriter fw = new FileWriter(file, false);
             fw.write("이름 / 국어 성적 / 영어 성적 / 수학 성적 / 등록일자(YYYY-MM-DD)\n");
             for (Person p: this.list) {
