@@ -21,6 +21,6 @@
   - commons-io 라이브러리 FileUtils 사용 (maven repository에서 commons-io 검색 후 build.gradle에 dependency 추가)
   - FileWriter 사용
  
-  <img width="412" alt="스크린샷 2021-06-24 오후 11 12 41" src="https://user-images.githubusercontent.com/47955992/123278156-adc6a780-d541-11eb-89bc-27be281e9262.png">
+  <img width="429" alt="스크린샷 2021-06-26 오후 12 16 24" src="https://user-images.githubusercontent.com/47955992/123500333-54ad5f80-d678-11eb-8137-04057c84288b.png">
 
-  <img width="494" alt="스크린샷 2021-06-24 오후 11 14 03" src="https://user-images.githubusercontent.com/47955992/123278401-df3f7300-d541-11eb-848b-080d9b923562.png">
+  <img width="470" alt="스크린샷 2021-06-26 오후 12 17 09" src="https://user-images.githubusercontent.com/47955992/123500352-71499780-d678-11eb-9d41-7de59e81b951.png">
