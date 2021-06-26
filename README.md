@@ -10,10 +10,9 @@
   - buffereReader, FileReader 등 사용
   - commons-io 라이브러리 FileUtils 사용 (maven repository에서 commons-io 검색 후 build.gradle에 dependency 추가)
 
-  <img width="489" alt="스크린샷 2021-06-24 오후 11 14 57" src="https://user-images.githubusercontent.com/47955992/123278553-fed69b80-d541-11eb-997b-afb7bb89af1e.png">
+  <img width="342" alt="스크린샷 2021-06-26 오후 11 02 40" src="https://user-images.githubusercontent.com/47955992/123515499-9c60d500-d6d2-11eb-9d95-403252628734.png">
   
-  <img width="417" alt="스크린샷 2021-06-26 오후 12 12 36" src="https://user-images.githubusercontent.com/47955992/123500263-ccc75580-d677-11eb-9f03-9cd1b03112c0.png">
-  
+  <img width="415" alt="스크린샷 2021-06-26 오후 11 03 04" src="https://user-images.githubusercontent.com/47955992/123515515-ab478780-d6d2-11eb-8dc9-abfc6e41a047.png">
   
   4. 파일 저장하기 기능 추가
   - 리스트에 있는 데이터들 data.txt 파일 저장하기
@@ -21,6 +20,7 @@
   - commons-io 라이브러리 FileUtils 사용 (maven repository에서 commons-io 검색 후 build.gradle에 dependency 추가)
   - FileWriter 사용
  
-  <img width="429" alt="스크린샷 2021-06-26 오후 12 16 24" src="https://user-images.githubusercontent.com/47955992/123500333-54ad5f80-d678-11eb-8137-04057c84288b.png">
+  <img width="423" alt="스크린샷 2021-06-26 오후 11 04 22" src="https://user-images.githubusercontent.com/47955992/123515547-d92ccc00-d6d2-11eb-99d3-a5cf27762a2f.png">
 
-  <img width="470" alt="스크린샷 2021-06-26 오후 12 17 09" src="https://user-images.githubusercontent.com/47955992/123500352-71499780-d678-11eb-9d41-7de59e81b951.png">
+  <img width="325" alt="스크린샷 2021-06-26 오후 11 04 49" src="https://user-images.githubusercontent.com/47955992/123515573-e9dd4200-d6d2-11eb-9626-66786a0fb31c.png">
+
