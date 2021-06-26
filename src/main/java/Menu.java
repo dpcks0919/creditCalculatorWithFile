@@ -24,7 +24,6 @@ public class Menu {
         System.out.println("5. 이름 검색");
         System.out.println("6. 학점 검색");
         System.out.println("7. 파일 저장하기");
-        //System.out.println("8. 파일 저장하기");
         System.out.println("0. 종료");
         System.out.println("----------");
     }
@@ -79,7 +78,6 @@ public class Menu {
 //            FileReader filereader = new FileReader(file);
 //            //입력 버퍼 생성
 //            BufferedReader bufReader = new BufferedReader(filereader);
-//            bufReader.readLine();  // 첫줄 생략
 //            String line = "";
 //            while((line = bufReader.readLine()) != null){  //.readLine()은 끝에 개행문자를 읽지 않는다.
 //
@@ -99,7 +97,7 @@ public class Menu {
 
             // fileUtils 사용
             List<String> lines = FileUtils.readLines(new File("data.txt"));
-            for(int i =1 ; i < lines.size(); i++){
+            for(int i =0 ; i < lines.size(); i++){
                 StringTokenizer st = new StringTokenizer(lines.get(i) , "/");
 
                 String name = st.nextToken().trim();
@@ -129,8 +127,6 @@ public class Menu {
             // BufferedWriter, FileWriter 사용
 //            File file = new File("data.txt");
 //            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-//            bw.write("이름 / 국어 성적 / 영어 성적 / 수학 성적 / 등록일자(YYYY-MM-DD)");
-//            bw.newLine();
 //            for (Person p: this.list) {
 //                bw.write(p.getName() + " / " + p.getKorScore() + " / " + p.getEngScore() + " / " + p.getMathScore() + " / " + p.getRegDate());
 //                bw.newLine();
@@ -141,7 +137,6 @@ public class Menu {
 
             // fileUtils 사용
 //            File file = new File("data.txt");
-//            FileUtils.write(file, "이름 / 국어 성적 / 영어 성적 / 수학 성적 / 등록일자(YYYY-MM-DD)\n", false);
 //            for (Person p: this.list) {
 //                FileUtils.write (file,p.getName() + " / " + p.getKorScore() + " / " + p.getEngScore() + " / " + p.getMathScore() + " / " + p.getRegDate() + "\n", true);
 //            }
@@ -151,7 +146,6 @@ public class Menu {
             // FileWriter 사용
             File file = new File("data.txt");
             FileWriter fw = new FileWriter(file, false);
-            fw.write("이름 / 국어 성적 / 영어 성적 / 수학 성적 / 등록일자(YYYY-MM-DD)\n");
             for (Person p: this.list) {
                 fw.write(p.getName() + " / " + p.getKorScore() + " / " + p.getEngScore() + " / " + p.getMathScore() + " / " + p.getRegDate() + "\n");
             }
@@ -240,17 +234,12 @@ public class Menu {
             System.out.println("데이터가 존재하지 않습니다.");
             return;
         }
-        for (Person p: this.list) {
-            System.out.println(p.getNum() + "번째 학생 이름:" + p.getName());
-            System.out.println(" 국어 성적: " + p.getKorScore());
-            System.out.println(" 영어 성적: " + p.getEngScore());
-            System.out.println(" 수학 성적: " + p.getMathScore());
-        }
 
-        System.out.println("삭제할 번호 입력");
-        br = new BufferedReader(new InputStreamReader(System.in));
         try {
-            int num = Integer.parseInt(br.readLine());
+            readData();
+            System.out.println("삭제할 번호 입력");
+            br = new BufferedReader(new InputStreamReader(System.in));
+            int num = Integer.parseInt(br.readLine()) - 1;
             if(valid(num)) {
                 this.list.remove(num);
                 for(int i=0; i < list.size(); i++)
@@ -272,16 +261,10 @@ public class Menu {
         }
 
         try {
-            for (Person p: this.list) {
-                System.out.println(p.getNum() + "번째 학생 이름:" + p.getName());
-                System.out.println(" 국어 성적: " + p.getKorScore());
-                System.out.println(" 영어 성적: " + p.getEngScore());
-                System.out.println(" 수학 성적: " + p.getMathScore());
-            }
-
+            readData();
             System.out.println("수정할 번호 입력");
             br = new BufferedReader(new InputStreamReader(System.in));
-            int num = Integer.parseInt(br.readLine());
+            int num = Integer.parseInt(br.readLine()) - 1;
             if(valid(num)) {
                 System.out.println("이름 입력");
                 this.list.get(num).setName(br.readLine());
@@ -353,7 +336,7 @@ public class Menu {
 
     private boolean valid(int num) {
         // 배열 범위
-        if (this.list.size() <= num) {
+        if (this.list.size() <= num || num == -1) {
             System.out.println("없는 번호 입니다.");
             return false;
         }
