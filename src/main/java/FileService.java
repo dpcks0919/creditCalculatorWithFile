@@ -7,9 +7,6 @@ import java.util.StringTokenizer;
 
 public class FileService {
 
-    public FileService() {
-    }
-
     public ArrayList<Person> readFile(){
 
         ArrayList<Person> list = new ArrayList<>();
@@ -24,7 +21,7 @@ public class FileService {
                 int korScore = Integer.parseInt(st.nextToken().trim());
                 int engScore = Integer.parseInt(st.nextToken().trim());
                 int mathScore = Integer.parseInt(st.nextToken().trim());
-                String grade = CreditCalculator.calculateGrade(korScore, engScore, mathScore);
+                String grade = Person.calculateGrade(korScore, engScore, mathScore);
                 String regDate = st.nextToken().trim();
 
                 list.add(new Person(i, name, korScore, engScore, mathScore, grade, regDate));
@@ -50,7 +47,6 @@ public class FileService {
             for (Person p: list) {
                 FileUtils.write (file,p.getName() + " / " + p.getKorScore() + " / " + p.getEngScore() + " / " + p.getMathScore() + " / " + p.getRegDate() + "\n", true);
             }
-            System.out.println("파일에 저장되었습니다.");
             // fileUtils 사용
 
             // FileWriter 사용
@@ -61,7 +57,6 @@ public class FileService {
 //            }
 //            fw.flush();
 //            fw.close();
-//            System.out.println("파일에 저장되었습니다.");
             // FileWriter 사용
 
             // BufferedWriter, FileWriter 사용
@@ -72,7 +67,6 @@ public class FileService {
 //                bw.newLine();
 //            }
 //            bw.close();
-//            System.out.println("파일에 저장되었습니다.");
             // BufferedWriter, FileWriter 사용
 
         }catch (FileNotFoundException e) {

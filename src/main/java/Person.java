@@ -21,6 +21,31 @@ public class Person {
         return this.korScore + this.engScore + this.mathScore;
     }
 
+    public static String calculateGrade(int korScore, int engScore, int mathScore){
+        int sum = korScore + engScore + mathScore;
+        double avg = sum / 3;
+
+        if(avg >= 95){
+            return "A+";
+        }else if( avg >= 90 ){
+            return "A";
+        }else if( avg >= 85 ){
+            return "B+";
+        }else if( avg >= 80 ){
+            return "B";
+        }else if( avg >= 75 ){
+            return "C+";
+        }else if( avg >= 70 ){
+            return "C";
+        }else if( avg >= 65 ){
+            return "D+";
+        }else if( avg >= 60 ){
+            return "D";
+        }else{
+            return "F";
+        }
+    }
+
     @Override
     public String toString() {
         return this.num+1 + ". " + this.name + " " +  this.korScore + "  " + this.engScore + "  " + this.mathScore + "   " + sum() + "  " + sum()/3 + "   "  + this.grade + "     "  +this.regDate ;

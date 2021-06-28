@@ -3,9 +3,6 @@ import java.io.*;
 public class Menu {
     BufferedReader br;
 
-    public Menu() {
-    }
-
     public String printMenu() throws IOException{
         System.out.println("---menu---");
         System.out.println("1. 조회");

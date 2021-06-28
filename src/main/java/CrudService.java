@@ -10,9 +10,6 @@ public class CrudService {
 
     BufferedReader br;
 
-    public CrudService() {
-    }
-
     public void readData(List<Person> list) {
 
         if( list.size() == 0 ){
@@ -54,7 +51,7 @@ public class CrudService {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         regDate = date.format(formatter);
         String grade;
-        grade = CreditCalculator.calculateGrade(korScore, engScore, mathScore);
+        grade = Person.calculateGrade(korScore, engScore, mathScore);
 
         Person p = new Person(num, name, korScore, engScore, mathScore, grade, regDate);
 
@@ -81,7 +78,7 @@ public class CrudService {
                 list.get(num).setEngScore(Integer.parseInt(br.readLine()));
                 System.out.println("수학 성적 입력");
                 list.get(num).setMathScore(Integer.parseInt(br.readLine()));
-                list.get(num).setGrade(CreditCalculator.calculateGrade(list.get(num).getKorScore(), list.get(num).getEngScore(), list.get(num).getMathScore()));
+                list.get(num).setGrade(Person.calculateGrade(list.get(num).getKorScore(), list.get(num).getEngScore(), list.get(num).getMathScore()));
                 LocalDate date = LocalDate.now();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 String regDate = date.format(formatter);

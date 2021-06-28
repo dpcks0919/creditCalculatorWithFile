@@ -5,7 +5,6 @@ public class CreditCalculator {
 
     public static void main(String[] args) {
 
-        boolean check = true;
         ArrayList<Person> list;
 
         Menu m = new Menu();
@@ -17,7 +16,7 @@ public class CreditCalculator {
 
         System.out.println("-----시작-----");
 
-        while (check) {
+        while(true) {
             try {
                 String choose = m.printMenu();
                 switch(choose){
@@ -39,18 +38,20 @@ public class CreditCalculator {
                     case "4":
                         crudService.readData(list);
                         crudService.deleteData(list);
+                        System.out.println("삭제되었습니다.");
                         break;
 
                     case "5":
-                        searchService.searchByName(list);
+                        searchService.searchBy(list, "name");
                         break;
 
                     case "6":
-                        searchService.searchByGrade(list);
+                        searchService.searchBy(list, "grade");
                         break;
 
                     case "7":
                         fileService.saveFile(list);
+                        System.out.println("파일에 저장되었습니다.");
                         break;
 
                     case "0":
@@ -72,33 +73,7 @@ public class CreditCalculator {
             System.out.println("없는 번호 입니다.");
             return false;
         }
-
         return true;
-    }
-
-    public static String calculateGrade(int korScore, int engScore, int mathScore){
-        int sum = korScore + engScore + mathScore;
-        double avg = sum / 3;
-
-        if(avg >= 95){
-            return "A+";
-        }else if( avg >= 90 ){
-            return "A";
-        }else if( avg >= 85 ){
-            return "B+";
-        }else if( avg >= 80 ){
-            return "B";
-        }else if( avg >= 75 ){
-            return "C+";
-        }else if( avg >= 70 ){
-            return "C";
-        }else if( avg >= 65 ){
-            return "D+";
-        }else if( avg >= 60 ){
-            return "D";
-        }else{
-            return "F";
-        }
     }
 
 }
