@@ -7,10 +7,6 @@ public class Person {
     private String grade;
     private String regDate;
 
-    public Person() {
-
-    }
-
     public Person(int num, String name, int korScore, int engScore, int mathScore, String grade, String regDate) {
         this.num = num;
         this.name = name;
