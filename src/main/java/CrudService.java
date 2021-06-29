@@ -4,7 +4,6 @@ import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CrudService {
 
@@ -106,7 +105,6 @@ public class CrudService {
                 list.remove(num);
                 for(int i=0; i < list.size(); i++)
                     list.get(i).setNum(i);
-                System.out.println("삭제되었습니다.");
             }else {
                 deleteData(list);
             }
