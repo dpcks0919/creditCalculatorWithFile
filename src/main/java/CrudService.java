@@ -10,7 +10,7 @@ public class CrudService {
 
     BufferedReader br;
 
-    public void readData(List<Person> list) {
+    public void readData(ArrayList<Person> list) {
 
         if( list.size() == 0 ){
             System.out.println("데이터가 존재하지 않습니다.");
@@ -24,7 +24,7 @@ public class CrudService {
         }
     }
 
-    public Person createData(List<Person> list) throws IOException{
+    public Person createData(ArrayList<Person> list) throws IOException{
         int num;
         String name;
         int korScore;
