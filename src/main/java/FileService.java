@@ -65,7 +65,7 @@ public class FileService {
         return list;
     }
 
-    public void saveFile(List<Person> list) {
+    public void saveFile(ArrayList<Person> list) {
 
         try {
 
